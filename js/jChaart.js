@@ -8,7 +8,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 var jChaart = {
 	GraphStyles : {},
 	aggregate : function(params) {},
-	makeGraphsFromFiles : function(params) {}		
+	build : function(params) {}		
 };
 
 +function($) { 
@@ -37,7 +37,7 @@ var jChaart = {
 			'brown': "rgb(100, 50, 50)",
 			'lightbrown': "rgb(150, 50, 50)"
 		},
-		pieStyle : {
+		pieChart : {
 			series: {
 				pie: {
 					show: true,
@@ -62,77 +62,8 @@ var jChaart = {
 			}
 		},
 
-		lineStyle: {
-			series: {
-				shadowSize: 1	// Drawing is faster without shadows                    
-			},
-			lines: { show: true, fill: false, lineWidth: 5 },
-			grid: {
-				hoverable: true,
-				clickable: true
-			},
-			yaxis: {
-				min: 0,            
-			},
-			xaxis: {
-				show: false,
-				min: 0,
-				max: 30,
-				font: { size: 8, color: '#333' }
-			},
-			legend: {
-				show: true,
-				position: "nw"
-			}
-		},
-		
-		lineStyle_filled: {
-			series: {
-				shadowSize: 1	// Drawing is faster without shadows                    
-			},
-			lines: { show: true, fill: true, lineWidth: 5 },
-			grid: {
-				hoverable: true,
-				clickable: true
-			},
-			yaxis: {
-				min: 0,            
-			},
-			xaxis: {
-				show: false,
-				min: 0,
-				max: 30,
-				font: { size: 8, color: '#333' }
-			},
-			legend: {
-				show: true,
-				position: "nw"
-			}
-		},
 
-		timeStyle: {
-			series: {
-				//shadowSize: 0	// Drawing is faster without shadows                    
-			},
-			lines: { show: true, fill: false },
-			grid: {
-				hoverable: true,
-				clickable: true
-			},
-			yaxis: {
-				min: 0            
-			},
-			xaxis: {
-				show: true,
-				mode: "time",
-				timeformat: "%H:%M",
-				minTickSize: [1, "hour"],            
-				twelveHourClock: true,
-				font: { size: 8, color: '#333' }
-			}
-		},
-
-		categoryStyle_line_filled: {
+		lineChart_filled: {
 			series: {
 				shadowSize: 4	// Drawing is faster without shadows                    
 			},
@@ -157,7 +88,7 @@ var jChaart = {
 			}
 		},
 
-		categoryStyle_line_nofill: {
+		lineChart_nofill: {
 			series: {
 				shadowSize: 4	// Drawing is faster without shadows                    
 			},
@@ -181,7 +112,7 @@ var jChaart = {
 			}
 		},
 
-		categoryStyle_bars: {
+		barChart: {
 			series: {
 				shadowSize: 2	// Drawing is faster without shadows                    
 			},
@@ -354,7 +285,7 @@ var jChaart = {
 		var defaults = {
 			datasets: [],
 			id: '#Graph',
-			style: GraphStyles.categoryStyle_line_nofill,
+			style: GraphStyles.lineChart_nofill,
 			ymax: -1
 		};
 		var options = _.extend(defaults, params)
@@ -543,8 +474,8 @@ var jChaart = {
 
 	
 	jChaart.GraphStyles = GraphStyles;
-	jChaart.aggregate = aggregate;
-	jChaart.makeGraphsFromFiles = makeGraphsFromFiles;
+	jChaart.aggregate = aggregateFromFiles;
+	jChaart.build = makeGraphsFromFiles;
 	
 }(jQuery);
 

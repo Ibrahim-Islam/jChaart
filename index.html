@@ -39,7 +39,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Performance Dashboard</a></li>
-                   <li><a href="github.com/oazabir/jChaart">Get the code</a></li>                    
+                   <li><a href="//github.com/oazabir/jChaart">Get the code</a></li>                    
                 </ul>
                 
             </div>
@@ -225,27 +225,27 @@
                     set.lines = { show: true, fill: true, lineWidth: 0, opacity: 0.5 };
         }
         // Online Order
-        jChaart.makeGraphsFromFiles({ id: '#OnlineOrderSourceCount', urls: "data/transactions/OnlineOrders.txt", style: jChaart.GraphStyles.pieStyle });
-        jChaart.makeGraphsFromFiles({ id: '#OnlineOrderWeekComparison', urls: "data/transactions/Online_week_comparison.txt", onNewDataset: lastweekColor});
+        jChaart.build({ id: '#OnlineOrderSourceCount', urls: "data/transactions/OnlineOrders.txt", style: jChaart.GraphStyles.pieChart });
+        jChaart.build({ id: '#OnlineOrderWeekComparison', urls: "data/transactions/Online_week_comparison.txt", onNewDataset: lastweekColor});
         
-        jChaart.makeGraphsFromFiles({ id: '#OnlineOrderHourlyCount', urls: "data/transactions/OnlineHourlyOrderCount.txt" , onNewDataset: lastweekColor });
-        jChaart.makeGraphsFromFiles({ id: '#OnlineOrderStatusCountHistory', urls: "data/transactions/OnlineStatusCount.txt", style: jChaart.GraphStyles.categoryStyle_bars });
-        jChaart.makeGraphsFromFiles({ id: '#OnlineOrderErrorCode', urls: "data/transactions/OnlineErrorCount.txt", style: jChaart.GraphStyles.categoryStyle_bars });
+        jChaart.build({ id: '#OnlineOrderHourlyCount', urls: "data/transactions/OnlineHourlyOrderCount.txt" , onNewDataset: lastweekColor });
+        jChaart.build({ id: '#OnlineOrderStatusCountHistory', urls: "data/transactions/OnlineStatusCount.txt", style: jChaart.GraphStyles.barChart });
+        jChaart.build({ id: '#OnlineOrderErrorCode', urls: "data/transactions/OnlineErrorCount.txt", style: jChaart.GraphStyles.barChart });
 
         // Agent
-        jChaart.makeGraphsFromFiles({ id: '#AgentOrderHourlyCount', urls: "data/transactions/Agent_orders.txt", onNewDataset: lastweekColor });
-        jChaart.makeGraphsFromFiles({ id: '#AgentOrderStat', urls: "data/transactions/Agent_stats.txt", style: jChaart.GraphStyles.pieStyle });
+        jChaart.build({ id: '#AgentOrderHourlyCount', urls: "data/transactions/Agent_orders.txt", onNewDataset: lastweekColor });
+        jChaart.build({ id: '#AgentOrderStat', urls: "data/transactions/Agent_stats.txt", style: jChaart.GraphStyles.pieChart });
 
 		
 		// system stats
-        jChaart.makeGraphsFromFiles({ id:'#CPUGraph', urls:["data/server/omar-ubuntu_cpu.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'black', style:jChaart.GraphStyles.categoryStyle_line_filled });
-		jChaart.makeGraphsFromFiles({ id:'#MemoryGraph', urls:["data/server/omar-ubuntu_mem.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'green', style:jChaart.GraphStyles.categoryStyle_line_filled });
-		jChaart.makeGraphsFromFiles({ id:'#SwapGraph', urls:["data/server/omar-ubuntu_mem.txt"], seriesNames: ['Ubuntu'], valueIndex:2, color: 'blue',  style:jChaart.GraphStyles.categoryStyle_line_filled  });
-		jChaart.makeGraphsFromFiles({ id:'#DiskBusyGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'red',  style:jChaart.GraphStyles.categoryStyle_line_filled  });
-		jChaart.makeGraphsFromFiles({ id:'#DiskRMBGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:2, color: 'lightgreen',  style:jChaart.GraphStyles.categoryStyle_line_filled  });
-		jChaart.makeGraphsFromFiles({ id:'#DiskWMBGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:3, color: 'lightblue',  style:jChaart.GraphStyles.categoryStyle_line_filled  });
-		jChaart.makeGraphsFromFiles({ id:'#DiskWaitGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:4, color: 'brown',  style:jChaart.GraphStyles.categoryStyle_line_filled  });
-		jChaart.makeGraphsFromFiles({ id:'#ProcessCountGraph', urls:["data/server/omar-ubuntu_proc.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'black',  style:jChaart.GraphStyles.categoryStyle_line_filled  });
+        jChaart.build({ id:'#CPUGraph', urls:["data/server/omar-ubuntu_cpu.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'black', style:jChaart.GraphStyles.lineChart_filled });
+		jChaart.build({ id:'#MemoryGraph', urls:["data/server/omar-ubuntu_mem.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'green', style:jChaart.GraphStyles.lineChart_filled });
+		jChaart.build({ id:'#SwapGraph', urls:["data/server/omar-ubuntu_mem.txt"], seriesNames: ['Ubuntu'], valueIndex:2, color: 'blue',  style:jChaart.GraphStyles.lineChart_filled  });
+		jChaart.build({ id:'#DiskBusyGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'red',  style:jChaart.GraphStyles.lineChart_filled  });
+		jChaart.build({ id:'#DiskRMBGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:2, color: 'lightgreen',  style:jChaart.GraphStyles.lineChart_filled  });
+		jChaart.build({ id:'#DiskWMBGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:3, color: 'lightblue',  style:jChaart.GraphStyles.lineChart_filled  });
+		jChaart.build({ id:'#DiskWaitGraph', urls:["data/server/omar-ubuntu_io.txt"], seriesNames: ['Ubuntu'], valueIndex:4, color: 'brown',  style:jChaart.GraphStyles.lineChart_filled  });
+		jChaart.build({ id:'#ProcessCountGraph', urls:["data/server/omar-ubuntu_proc.txt"], seriesNames: ['Ubuntu'], valueIndex:1, color: 'black',  style:jChaart.GraphStyles.lineChart_filled  });
 
     });
 
